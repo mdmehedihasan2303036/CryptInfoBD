@@ -518,7 +518,6 @@ CryptInfoBD/
 |   |   |-- text_to_binary_page.py
 |   |   |-- text_to_hex_page.py
 |   |   |-- text_to_octal_page.py
-|-- project/
 ```
 
 ## Setup and Run

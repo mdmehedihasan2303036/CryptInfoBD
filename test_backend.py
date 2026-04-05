@@ -5,7 +5,7 @@ Test script to verify backend conversions work correctly.
 import sys
 import os
 
-# Add project directory to path
+# Add CryptInfoBD root directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from backend.routes.decimal_to_binary import convert_decimal_to_binary

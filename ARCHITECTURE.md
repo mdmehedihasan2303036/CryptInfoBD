@@ -241,7 +241,7 @@ CryptInfoBDApp (Main Window)
 ## File Organization
 
 ```
-project/
+CryptInfoBD/
 │
 ├── run.py                  ← Entry Point
 │

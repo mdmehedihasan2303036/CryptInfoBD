@@ -6,7 +6,7 @@ Run this script to start the application.
 import sys
 import os
 
-# Add the project directory to Python path
+# Add the CryptInfoBD root directory to Python path
 project_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, project_dir)
 

@@ -21,7 +21,7 @@
 
   Option 3: Full Path Command
   ────────────────────────────
-  cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD\project"
+  cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD"
   python run.py
 
 

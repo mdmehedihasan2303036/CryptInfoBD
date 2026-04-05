@@ -7,7 +7,7 @@ This is a **complete desktop application** built with Python backend and PyQt6 f
 ## 📁 Project Structure
 
 ```
-project/
+CryptInfoBD/
 │
 ├── backend/                          # BACKEND (Pure Python Logic)
 │   ├── __init__.py
@@ -92,7 +92,7 @@ Double-click `start.bat`
 
 ### Method 3: Direct Python
 ```bash
-cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD\project"
+cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD"
 python run.py
 ```
 

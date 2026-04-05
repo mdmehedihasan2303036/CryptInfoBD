@@ -2,9 +2,9 @@
 
 ## Installation & Setup
 
-1. **Navigate to the project directory:**
+1. **Navigate to the CryptInfoBD directory:**
    ```bash
-   cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD\project"
+   cd "c:\Users\Mehedi\OneDrive\Desktop\versity Project\CryptInfoBD"
    ```
 
 2. **Install dependencies (if not already installed):**
@@ -71,7 +71,7 @@
 - Solution: Run `pip install PyQt6`
 
 **Problem: "ModuleNotFoundError: No module named 'backend'"**
-- Solution: Always run using `python run.py` from the project directory
+- Solution: Always run using `python run.py` from the CryptInfoBD directory
 
 **Problem: Application window doesn't open**
 - Make sure you have Python 3.10+ installed
@@ -81,7 +81,7 @@
 ## Project Structure
 
 ```
-project/
+CryptInfoBD/
 ├── backend/          # Python backend (conversion logic)
 ├── frontend/         # PyQt6 frontend (UI)
 ├── run.py           # Application launcher
