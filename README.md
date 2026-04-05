@@ -1,11 +1,64 @@
 # CryptInfoBD
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![PyQt6](https://img.shields.io/badge/UI-PyQt6-green)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![Tools](https://img.shields.io/badge/Conversions-22-orange)
+
 CryptInfoBD is a desktop crypto-conversion toolkit built with Python and PyQt6.
 It combines classic number-system conversion, text encoding/decoding, and RSA numeric operations in one UI.
 
+## Table of Contents
+
+- [GitHub Repository](#github-repository)
+- [Quick Start (GitHub)](#quick-start-github)
+- [Tech Stack](#tech-stack)
+- [Complete App Features](#complete-app-features)
+- [Conversion Mathematics (How Each Conversion Works)](#conversion-mathematics-how-each-conversion-works)
+- [Conversion Examples (How To Use Each Tool)](#conversion-examples-how-to-use-each-tool)
+- [User Flow (End-to-End)](#user-flow-end-to-end)
+- [Architecture and Advanced Design Details](#architecture-and-advanced-design-details)
+- [Backend: Module-by-Module Usage](#backend-module-by-module-usage)
+- [Frontend: Module-by-Module Usage](#frontend-module-by-module-usage)
+- [Project Structure](#project-structure)
+- [Setup and Run](#setup-and-run)
+- [Testing](#testing)
+- [Related Docs](#related-docs)
+- [License](#license)
+
 ## GitHub Repository
 
-- Production repository: https://github.com/mdmehedihasan2303036/project.git
+- Production repository: https://github.com/mdmehedihasan2303036/CryptInfoBD.git
+
+## Quick Start (GitHub)
+
+### 1) Clone
+```bash
+git clone https://github.com/mdmehedihasan2303036/CryptInfoBD.git
+cd CryptInfoBD
+```
+
+### 2) Create virtual environment
+```bash
+python -m venv .venv
+```
+
+### 3) Activate virtual environment
+Windows (PowerShell):
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Windows (Git Bash):
+```bash
+source .venv/Scripts/activate
+```
+
+### 4) Install dependencies and run
+```bash
+pip install -r requirements.txt
+python run.py
+```
 
 ## Tech Stack
 
@@ -167,6 +220,104 @@ This section explains the method, core formula, and mathematics used for every c
 - Math used: modular arithmetic and RSA inverse operation over modulus $N$.
 - Constraint used in app: $0 \le C < N$ and $d, N > 0$.
 
+## Conversion Examples (How To Use Each Tool)
+
+This section gives one simple input/output example for every conversion tool.
+
+### A) Number and Text Conversions (14)
+
+1. Decimal to Binary
+- Input: `25`
+- Output: `11001`
+
+2. Decimal to Hexadecimal
+- Input: `255`
+- Output: `FF`
+
+3. Decimal to Octal
+- Input: `83`
+- Output: `123`
+
+4. Binary to Decimal
+- Input: `101101`
+- Output: `45`
+
+5. Hexadecimal to Decimal
+- Input: `1A`
+- Output: `26`
+
+6. Octal to Decimal
+- Input: `17`
+- Output: `15`
+
+7. Symbol / Word to Decimal
+- Input: `Hi`
+- Output: `72 105`
+
+8. Decimal to Text
+- Input: `72 101 108 108 111`
+- Output: `Hello`
+
+9. Hexadecimal to Text
+- Input: `48 65 6C 6C 6F`
+- Output: `Hello`
+
+10. Octal to Text
+- Input: `110 145 154 154 157`
+- Output: `Hello`
+
+11. Binary to Text
+- Input: `01001000 01100101 01101100 01101100 01101111`
+- Output: `Hello`
+
+12. Text to Hexadecimal
+- Input: `Hello`
+- Output: `48 65 6C 6C 6F`
+
+13. Text to Octal
+- Input: `Hi`
+- Output: `110 151`
+
+14. Text to Binary
+- Input: `Hi`
+- Output: `01001000 01101001`
+
+### B) Base Encoding Conversions (6)
+
+1. Base64 to PlainText
+- Input: `SGVsbG8=`
+- Output: `Hello`
+
+2. PlainText to Base64
+- Input: `Hello`
+- Output: `SGVsbG8=`
+
+3. Base32 to PlainText
+- Input: `JBSWY3DP`
+- Output: `Hello`
+
+4. PlainText to Base32
+- Input: `Hello`
+- Output: `JBSWY3DP`
+
+5. Base128 to PlainText (project uses Base85 codec internally)
+- Input: `NM&qnZy<MXa%^M`
+- Output: `Hello123`
+
+6. PlainText to Base128 (project uses Base85 codec internally)
+- Input: `Hello123`
+- Output: `NM&qnZy<MXa%^M`
+
+### C) RSA Tools (2)
+
+1. Use e and d to RSA (encrypt form)
+- Input: `M=65, e=17, N=3233`
+- Output: `2790`
+
+2. Use e and d to Msg (decrypt form)
+- Input: `C=2790, d=2753, N=3233`
+- Output: `65`
+
 ## User Flow (End-to-End)
 
 1. Run app using `python run.py` or `start.bat`.
@@ -288,20 +439,86 @@ This section explains the method, core formula, and mathematics used for every c
 
 ```text
 CryptInfoBD/
+|-- ARCHITECTURE.md
+|-- HOW_TO_RUN.txt
+|-- PROJECT_OVERVIEW.md
+|-- QUICKSTART.md
+|-- README.md
+|-- SUCCESS.md
+|-- UPDATES.md
+|-- VISUAL_GUIDE.md
+|-- requirements.txt
+|-- run.py
+|-- start.bat
+|-- test_backend.py
 |-- backend/
+|   |-- __init__.py
 |   |-- main.py
 |   |-- routes/
+|   |   |-- __init__.py
+|   |   |-- base128_to_plaintext.py
+|   |   |-- base32_to_plaintext.py
+|   |   |-- base64_to_plaintext.py
+|   |   |-- binary_to_decimal.py
+|   |   |-- binary_to_text.py
+|   |   |-- decimal_to_binary.py
+|   |   |-- decimal_to_hexadecimal.py
+|   |   |-- decimal_to_octal.py
+|   |   |-- decimal_to_text.py
+|   |   |-- hexadecimal_to_decimal.py
+|   |   |-- hexadecimal_to_text.py
+|   |   |-- octal_to_decimal.py
+|   |   |-- octal_to_text.py
+|   |   |-- plaintext_to_base128.py
+|   |   |-- plaintext_to_base32.py
+|   |   |-- plaintext_to_base64.py
+|   |   |-- rsa_conversion.py
+|   |   |-- symbol_to_decimal.py
+|   |   |-- text_to_binary.py
+|   |   |-- text_to_hexadecimal.py
+|   |   |-- text_to_octal.py
 |   |-- utils/
+|   |   |-- __init__.py
+|   |   |-- exceptions.py
+|   |   |-- validators.py
 |-- frontend/
+|   |-- __init__.py
 |   |-- app.py
 |   |-- router.py
 |   |-- components/
+|   |   |-- __init__.py
+|   |   |-- base_dropdown.py
+|   |   |-- dropdown.py
+|   |   |-- error_label.py
+|   |   |-- input_field.py
+|   |   |-- output_field.py
+|   |   |-- rsa_dropdown.py
 |   |-- pages/
-|-- run.py
-|-- start.bat
-|-- requirements.txt
-|-- test_backend.py
-|-- README.md
+|   |   |-- __init__.py
+|   |   |-- base128_to_plaintext_page.py
+|   |   |-- base32_to_plaintext_page.py
+|   |   |-- base64_to_plaintext_page.py
+|   |   |-- binary_to_decimal_page.py
+|   |   |-- binary_to_text_page.py
+|   |   |-- decimal_to_binary_page.py
+|   |   |-- decimal_to_hex_page.py
+|   |   |-- decimal_to_octal_page.py
+|   |   |-- decimal_to_text_page.py
+|   |   |-- hex_to_decimal_page.py
+|   |   |-- hex_to_text_page.py
+|   |   |-- login_page.py
+|   |   |-- octal_to_decimal_page.py
+|   |   |-- octal_to_text_page.py
+|   |   |-- plaintext_to_base128_page.py
+|   |   |-- plaintext_to_base32_page.py
+|   |   |-- plaintext_to_base64_page.py
+|   |   |-- rsa_decrypt_page.py
+|   |   |-- rsa_encrypt_page.py
+|   |   |-- symbol_to_decimal_page.py
+|   |   |-- text_to_binary_page.py
+|   |   |-- text_to_hex_page.py
+|   |   |-- text_to_octal_page.py
+|-- project/
 ```
 
 ## Setup and Run
